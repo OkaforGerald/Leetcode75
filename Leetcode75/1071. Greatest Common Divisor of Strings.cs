@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Leetcode75
+namespace Leetcode75_1071
 {
     public class Solution
     {
-        public static string GcdOfStrings(string str1, string str2)
+        public string GcdOfStrings(string str1, string str2)
         {
             string? prefix = null;
             for (int i = 1; i <= Math.Min(str1.Length, str2.Length); i++)
