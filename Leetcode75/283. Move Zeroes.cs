@@ -8,39 +8,21 @@ namespace Leetcode75_283
 {
     public class Solution
     {
-        public void MoveZeroes(int[] nums)
+        public static void MoveZeroes(int[] nums)
         {
-            int lPointer = 0;
-            int rPointer = nums.Length - 1;
+            int i = 0, j = 0;
 
-            while(lPointer < rPointer)
+            while (j < nums.Length - 1 && i < nums.Length)
             {
-                if (nums[lPointer] == 0)
-                {
-                    if (nums[rPointer] == 0)
-                    {
-                        rPointer--;
-                        continue;
-                    }
-                    var temp = nums[lPointer];
-                    nums[lPointer] = nums[rPointer];
-                    nums[rPointer] = temp;
+                if (nums[i] != 0) { i++; continue; }
 
-                    lPointer++;
-                    rPointer--;
-                }
-                else
+                j = i;
+                while (nums[j] == 0 && j < nums.Length - 1)
                 {
-                    lPointer++;
+                    j++;
                 }
+                (nums[i], nums[j]) = (nums[j], nums[i]);
             }
         }
-        //public static void Main(string[] args)
-        //{
-        //    Solution solution = new Solution();
-        //    int[] arr = [0, -1, 7, 0, 8, 0, 4];
-        //    solution.MoveZeroes(arr);
-        //    Console.WriteLine(String.Join(',', arr));
-        //}
     }
 }
